@@ -34,16 +34,7 @@ python -m pip install -r requirements.txt
 Download the official SAM ViT-B checkpoint separately. Model weights are not
 included in this repository.
 
-## Scope
 
-This is a core architecture release, not a full training-reproduction package.
-It intentionally excludes training and evaluation pipelines, datasets,
-benchmark metric implementations, experiment scripts, generated figures, and
-model checkpoints.
-
-## Citation
-
-Add the final paper citation here after publication.
 
 ## License
 
