@@ -1,10 +1,7 @@
 # FSR-SAM Core Model
 
 Minimal model implementation of **FSR-SAM: Frequency-guided Saliency
-Refinement with SAM for Salient Object Detection**. This repository contains
-the paper architecture and a SAM-B checkpoint adapter; training, evaluation,
-datasets, checkpoints, visualizations, and experiment logs are not included.
-
+Refinement with SAM for Salient Object Detection**. 
 ## Architecture
 
 ```text
@@ -36,31 +33,6 @@ python -m pip install -r requirements.txt
 
 Download the official SAM ViT-B checkpoint separately. Model weights are not
 included in this repository.
-
-## Minimal usage
-
-```python
-import torch
-from model import FSRSAM, load_sam_checkpoint
-
-model = FSRSAM(img_size=512)
-load_sam_checkpoint(model, "sam_vit_b_01ec64.pth", img_size=512)
-model.eval()
-
-image = torch.randn(1, 3, 512, 512)
-with torch.no_grad():
-    final_logits, coarse_logits, auxiliary = model(image)
-
-final_prediction = torch.sigmoid(final_logits)
-print(final_prediction.shape)        # (1, 1, 512, 512)
-print(coarse_logits.shape)           # (1, 1, 512, 512)
-print(auxiliary["loc_multi"].shape) # (1, 1, 32, 32)
-```
-
-The public return value is `(final_logits, coarse_logits, auxiliary)`. The
-`auxiliary` dictionary exposes the two localization responses (`loc_f3`,
-`loc_f4`), their fused foreground confidence map (`loc_multi`), and semantic
-guidance (`sem_g_all`).
 
 ## Scope
 
