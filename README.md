@@ -75,5 +75,8 @@ Add the final paper citation here after publication.
 
 ## License
 
-Add the selected project license before publishing. Files adapted from SAM
-retain their original copyright headers.
+This project is licensed under the [Apache License 2.0](LICENSE).
+
+Parts of the implementation are adapted from Meta's
+[Segment Anything](https://github.com/facebookresearch/segment-anything)
+project. Those files retain their original copyright and license notices.
